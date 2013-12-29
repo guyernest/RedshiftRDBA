@@ -61,6 +61,32 @@ hourHeatMap <- function(con) {
   
 }
 
+# Analyzing queue time of the query to suggest better WLM settings
+
+analyzeQueuePerServiceClass <- function (con) {
+  # From: http://docs.aws.amazon.com/redshift/latest/dg/r_STL_WLM_QUERY.html
+  serviceClassAvg <- dbGetQuery(con, "select service_class as svc_class, count(*),
+    avg(total_queue_time) as avg_queue_time,
+    avg(total_exec_time) as avg_exec_time
+    from stl_wlm_query
+    group by service_class
+    order by service_class;")
+  
+  return (serviceClassAvg)
+}
+
+plotQueuePerServiceClass <- function (serviceClassAvgData) {
+  require(reshape2)
+  dfm <- melt(serviceClassAvgData[,c('svc_class', 'avg_queue_time', 'avg_exec_time')],id.vars = 1)
+  tile <- ggplot(dfm, aes(x=factor(svc_class))) +
+    geom_bar(aes(y=value/1000, fill=variable), stat='identity') +
+    scale_y_sqrt(labels = comma) +
+    labs(title = "Service Class Time Distribution", x="Service Class", y="Time in ms (SQRT Scale)")
+
+  tile <- tile + geom_text(data=serviceClassAvgData, aes(x = factor(svc_class), y=1, label = count))
+  return (tile)
+}
+
 # We want to check for each table how many scans did we have 'scan   tbl=118538'
 
 dbGetQuery(con, "SELECT avgtime, rows, bytes from SVL_QUERY_SUMMARY where label = 'scan   tbl=118538'")
