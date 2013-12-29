@@ -26,7 +26,7 @@ plotTable <- function(summaryTable) {
   if (sum(summaryTable$sortkey)>0) {
     tile <- tile + geom_text(data=subset(dfm, variable=='sortkey' & value>0), aes(y= 0, label = value), color="red",hjust=2.5) 
   }
-  tile <- tile + labs(title = paste("Data Distribution in Table:",summaryTable[1,2]), x="Column Name (encoding)", y="1MB Blocks (LOG Scale)") +
+  tile <- tile + labs(title = paste("Data Distribution in Table:",summaryTable[1,2]), x="Column Name (encoding)", y="1MB Blocks (SQRT Scale)") +
     coord_flip()
   
   return (tile)
