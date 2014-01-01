@@ -19,10 +19,13 @@ http://www.louisaslett.com/RStudio_AMI/
 
 * Using AWS CLI (http://aws.amazon.com/cli/):
 
-  aws ec2 run-instances --image-id ami-1ffd6d2f 
-    --instance-type m3.xlarge 
-    --security-groups RStudioServer 
-    --region us-west-2
+  `aws ec2 run-instances --image-id ami-1ffd6d2f`
+    
+    `--instance-type m3.xlarge` 
+    
+    `--security-groups RStudioServer`
+    
+    `--region us-west-2`
 
 (Please remember to modify the user and password of the remote RStudio)
 
@@ -35,6 +38,24 @@ http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.htm
 
 * Using AWS CLI:
 
-  aws redshift authorize-cluster-security-group-ingress --cluster-security-group-name default --ec2-security-group-name RStudioServer
+  `aws redshift authorize-cluster-security-group-ingress --cluster-security-group-name default --ec2-security-group-name RStudioServer`
+
+3. Install the RedshiftRDBA library
+-------------------------
+
+Until it is nicely packaged, you need to copy the files to your machine and source them
+
+Using the DBA library
+====================
+
+### Connecting to your Redshift cluster
+
+`con <- clusterConnect("cluster-name.xxxxxxxxxx.us-west-2.redshift.amazonaws.com", "dev", "user", "password")`
+
+### DB Summary
+
+`DBSummaryTable <- DBSummary(con)`
+
+`plotSummary(DBSummaryTable)`
 
 
