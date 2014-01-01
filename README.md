@@ -3,6 +3,19 @@ RedshiftRDBA
 
 DBA library for Amazon Redshift
 
+Amazon Redshift is a powerful data warehouse in the cloud. It can process tons of data with ease, but it is important to understand what is going on under the hood in terms of table data design and query design.
+
+This library is designed to give DBA or Redshift a quick way to run various queries to the various system tables in Redshift and visualise its results.
+
+The library is using R, thanks to its open source nature, speed and data visualisation integration.
+
+The library is divided into several parts:
+
+* General table view - which tables are defined, what is their relative size in terms of Bytes and rows and how much they are sorted
+* Table view - which columns are defined in a specific table, what is their relative size and their encoding
+* General Queries view - how many queries are running on the DB and their relative distribution into fast and slow queries
+
+
 Getting Started
 ===============
 
