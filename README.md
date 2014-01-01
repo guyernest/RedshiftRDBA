@@ -59,3 +59,13 @@ Using the DBA library
 `plotSummary(DBSummaryTable)`
 
 ![Chart Output Example](DBSummaryExample.png "DB Summary Example")
+
+### Table Summary
+
+`cloudfrontTable <- tableCols(con, "cloudfront")`
+
+`plotTable(cloudfrontTable)`
+
+![Chart Output Example](TableSummaryExample.png "Table Summary Example")
+
+
