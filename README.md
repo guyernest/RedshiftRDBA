@@ -58,4 +58,4 @@ Using the DBA library
 
 `plotSummary(DBSummaryTable)`
 
-
+![Chart Output Example](DBSummaryExample.png "DB Summary Example")
