@@ -68,4 +68,17 @@ Using the DBA library
 
 ![Chart Output Example](TableSummaryExample.png "Table Summary Example")
 
+### Query Summary
+
+`plotQueryDistribution(con)`
+
+![Chart Output Example](FastSlowQueryDistributionExample.png "Query Distribtion by exectution time Summary Example")
+
+`hourHeatMap(con)`
+
+![Chart Output Example](HourlyQueryDistributionExample.png "Query Distribtion by Day/Hour Summary Example")
+
+
+
+
 
