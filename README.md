@@ -19,3 +19,14 @@ aws ec2 run-instances --image-id ami-1ffd6d2f
   --instance-type m3.xlarge 
   --security-groups RStudioServer 
   --region us-west-2
+
+(Please remember to modify the user and password of the remote RStudio)
+
+2. Grant permission to access your Redshift cluster to your local or remote R 
+
+** Using a web browser: http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html
+
+** Using AWS CLI:
+aws redshift authorize-cluster-security-group-ingress --cluster-security-group-name default --ec2-security-group-name RStudioServer
+
+3. 
