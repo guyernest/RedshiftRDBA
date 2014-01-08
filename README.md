@@ -58,6 +58,12 @@ http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.htm
 
 Until it is nicely packaged, you need to copy the files to your machine and source them
 
+`source('~/RedshiftRDBA/Summary.R', echo=TRUE)`
+
+`source('~/RedshiftRDBA/TableDesign.R', echo=TRUE)`
+
+`...`
+
 Using the DBA library
 ====================
 
