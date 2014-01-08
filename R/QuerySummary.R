@@ -1,16 +1,17 @@
-
-querySummarydata <- dbGetQuery(con, "select count(query) as n_qry, substring (qrytext,1,150) as qrytext, min(run_minutes), max(run_minutes), avg(run_minutes), sum(run_minutes) as total,  max(query) as sample_qry
+ffu <- function(dummy) {
+  querySummarydata <- dbGetQuery(con, "select count(query) as n_qry, substring (qrytext,1,150) as qrytext, min(run_minutes), max(run_minutes), avg(run_minutes), sum(run_minutes) as total,  max(query) as sample_qry
   from (
     select userid, query, trim(database) as database, trim(querytxt) as qrytext, starttime, endtime, datediff(minutes, starttime,endtime) as run_minutes
       from stl_query where userid <> 1
       and querytxt like '%select%'  )
   group by userid, qrytext
   order by 6 desc limit 35;")
-
-# We want to check the number of queries that are running and their average time
-
-queryTimeData <- dbGetQuery(con, "select userid, count(query) as queries, sum(elapsed) as time 
-        from svl_qlog group by userid order by queries desc;")
+  
+  # We want to check the number of queries that are running and their average time
+  
+  queryTimeData <- dbGetQuery(con, "select userid, count(query) as queries, sum(elapsed) as time 
+        from svl_qlog group by userid order by queries desc;")  
+}
 
 plotQueryDistribution <- function(con) {
 
@@ -89,7 +90,7 @@ plotQueuePerServiceClass <- function (serviceClassAvgData) {
 
 # We want to check for each table how many scans did we have 'scan   tbl=118538'
 
-dbGetQuery(con, "SELECT avgtime, rows, bytes from SVL_QUERY_SUMMARY where label = 'scan   tbl=118538'")
+#dbGetQuery(con, "SELECT avgtime, rows, bytes from SVL_QUERY_SUMMARY where label = 'scan   tbl=118538'")
 
 getScanCount <- function(table) {
   count <- dbGetQuery(con, paste("SELECT label, count(query) as count, 
