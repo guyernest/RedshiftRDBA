@@ -60,6 +60,12 @@ Until it is nicely packaged, you need to copy the files to your machine and sour
 
 `source('~/RedshiftRDBA/Summary.R', echo=TRUE)`
 
+To make sure that you are loading the needed packages, connect to your Redshfit cluster after this first file definition
+
+`con <- clusterConnect("cluster-name.xxxxxxxxxx.us-west-2.redshift.amazonaws.com", "dev", "user", "password")`
+
+Then you can continue with sourcing the rest of the files as needed
+
 `source('~/RedshiftRDBA/TableDesign.R', echo=TRUE)`
 
 `...`
