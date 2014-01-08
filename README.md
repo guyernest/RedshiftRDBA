@@ -58,7 +58,7 @@ http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.htm
 
 Until it is nicely packaged, you need to copy the files to your machine and source them
 
-`source('~/RedshiftRDBA/Summary.R', echo=TRUE)`
+`source('~/RedshiftRDBA/Summary.R')`
 
 To make sure that you are loading the needed packages, connect to your Redshfit cluster after this first file definition
 
@@ -66,7 +66,7 @@ To make sure that you are loading the needed packages, connect to your Redshfit 
 
 Then you can continue with sourcing the rest of the files as needed
 
-`source('~/RedshiftRDBA/TableDesign.R', echo=TRUE)`
+`source('~/RedshiftRDBA/TableDesign.R')`
 
 `...`
 
