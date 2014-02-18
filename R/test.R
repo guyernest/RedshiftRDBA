@@ -1,4 +1,4 @@
-con <- clusterConnect("cf-logs.xxxxxxxxxx.us-west-2.redshift.amazonaws.com", "dev", "user", "password")
+con <- clusterConnect("cluster-dns", "db-name", "user", "password", 5349)
 
 # DB Overview
 DBSummaryTable <- DBSummary(con)
