@@ -77,6 +77,8 @@ Using the DBA library
 
 `con <- clusterConnect("cluster-name.xxxxxxxxxx.us-west-2.redshift.amazonaws.com", "dev", "user", "password")`
 
+Please note that the library is accessing the system tables and views, therefore it requires superuser priviliges for the user connecting (superuser explanation: http://docs.aws.amazon.com/redshift/latest/dg/r_superusers.html)
+
 ### DB Summary
 
 `DBSummaryTable <- DBSummary(con)`
