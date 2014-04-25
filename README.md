@@ -87,14 +87,6 @@ Please note that the library is accessing the system tables and views, therefore
 
 ![Chart Output Example](DBSummaryExample.png "DB Summary Example")
 
-### Table Summary
-
-`cloudfrontTable <- tableCols(con, "cloudfront")`
-
-`plotTable(cloudfrontTable)`
-
-![Chart Output Example](TableSummaryExample.png "Table Summary Example")
-
 Please note that you might have a very big list of tables with duplicate names in mulitple schema. You can limit the plotting to a specific schema with:
 
 `mySchemaName <- 'my_schema_name'`
@@ -103,6 +95,14 @@ Please note that you might have a very big list of tables with duplicate names i
 If you have too many tables in a single schema and finding it hard to plot all the table together you can subset the list by:
 
 `plotSummary(mySchema[which(substr(mySchema$table_name,1,3)=='log'),])`
+
+### Table Summary
+
+`cloudfrontTable <- tableCols(con, "cloudfront")`
+
+`plotTable(cloudfrontTable)`
+
+![Chart Output Example](TableSummaryExample.png "Table Summary Example")
 
 ### Query Summary
 
