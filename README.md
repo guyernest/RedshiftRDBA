@@ -90,6 +90,7 @@ Please note that the library is accessing the system tables and views, therefore
 Please note that you might have a very big list of tables with duplicate names in mulitple schema. You can limit the plotting to a specific schema with:
 
 `mySchemaName <- 'my_schema_name'`
+
 `mySchema <- DBSummaryTable[which(DBSummaryTable$nspname==mySchemaName & DBSummaryTable$schemaname==mySchemaName & DBSummaryTable$btrim==mySchemaName),]`
 
 If you have too many tables in a single schema and finding it hard to plot all the table together you can subset the list by:
