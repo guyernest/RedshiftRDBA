@@ -99,6 +99,8 @@ If you have too many tables in a single schema and finding it hard to plot all t
 
 ### Table Summary
 
+`dbGetQuery(con, 'set search_path to my_schema_name;')`
+
 `cloudfrontTable <- tableCols(con, "cloudfront")`
 
 `plotTable(cloudfrontTable)`
