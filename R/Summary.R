@@ -170,14 +170,14 @@ plotSummary <- function(summaryTable) {
   geom_bar(data=subset(dfm, variable=='unsorted_rows'), 
            aes(y=value), stat="identity", alpha=0.2, colour="red", width=0.5) +   
   geom_text(data=subset(dfm, variable=='percent_unsorted'), 
-            aes(y= 100, label = sprintf("%.1f %% unsorted",value)), 
-            vjust=-0.5, size=3) +    
+            aes(y= 100, label = sprintf("%.1f %%",value)), 
+            vjust=-1, size=3) +    
   geom_text(data=subset(dfm, variable=='avg'), 
-            aes(y= 0, label = paste(value,"B",sep="")), vjust=1.1, hjust=1.5) +  
+            aes(y= 0, label = paste(value,"B",sep="")), vjust=-0.8, hjust=-1, size=4, angle = 90) +  
   geom_text(data=subset(dfm, variable=='num_cols'), 
-            aes(y= 0, label = paste("<-",value,"->",sep="")), vjust=1.1, hjust=-0.5) +  
-  labs(title = "Data Distribution in DB Tables", x="Avg. Rec/Bytes    <-#Cols->\nTable Name", y="", size=4) +
-  theme(axis.title.x = element_text(size = rel(0.75)))
+            aes(y= 0, label = paste("<-",value,"->",sep="")), vjust=1, hjust=-1, size=4, angle = 90) +  
+  labs(title = "Data Distribution in DB Tables", x="Avg. Rec/Bytes    <-#Cols->\nUnsorted %\nTable Name", y="", size=1) +
+  theme(axis.title.x = element_text(size = rel(0.75)), axis.text.x = element_text(angle = 90, hjust = 1))
 
   return (tile)
 }
