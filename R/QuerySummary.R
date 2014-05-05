@@ -18,6 +18,7 @@ plotQueryDistribution <- function(con) {
   queryTimeHist <- dbGetQuery(con, "select userid, elapsed as time from svl_qlog;")
   shortQueries <- subset(queryTimeHist, queryTimeHist$time < 100000)
   longQueries <- subset(queryTimeHist, queryTimeHist$time >= 100000 & queryTimeHist$time <10000000)
+  longerQueries <- subset(queryTimeHist, queryTimeHist$time >= 10000000)
   
   shortPlot <- ggplot(shortQueries, aes(x=time)) + 
     geom_histogram(aes(y=..density..),      # Histogram with density instead of count on y-axis
